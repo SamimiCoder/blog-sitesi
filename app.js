@@ -12,7 +12,11 @@ dbURI =
   "mongodb+srv://berkaysarac:berkay.41@cluster0.b4vzs.mongodb.net/?retryWrites=true&w=majority";
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((result) => app.listen(3000))
+  .then((result) =>
+    app.listen(3000, (error) => {
+      error ? console.log(error) : console.log("server running on port 3000");
+    })
+  )
   .catch((err) => console.log(err));
 app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, "public", "css")));
