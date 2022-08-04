@@ -1,22 +1,14 @@
 const express = require("express");
 const layouts = require("express-ejs-layouts");
 const bodyParser = require("body-parser");
+const brsConnection = require("./models/brs-connection");
 const path = require("path");
 const expressEjsLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const app = express();
 const router = express.Router();
 app.set("view engine", "ejs");
-
-dbURI = "mongodb://0.0.0.0:27017/";
-mongoose
-  .connect(dbURI, { useNewUrlParser: true })
-  .then((result) =>
-    app.listen(3000, (error) => {
-      error ? console.log(error) : console.log("server running on port 3000");
-    })
-  )
-  .catch((err) => console.log(err));
+brsConnection.connectDb;
 app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, "public", "css")));
 app.use(express.static(path.join(__dirname, "public", "scripts")));
