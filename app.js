@@ -8,10 +8,9 @@ const app = express();
 const router = express.Router();
 app.set("view engine", "ejs");
 
-dbURI =
-  "mongodb+srv://berkaysarac:berkay.41@cluster0.b4vzs.mongodb.net/?retryWrites=true&w=majority";
+dbURI = "mongodb://0.0.0.0:27017/";
 mongoose
-  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(dbURI, { useNewUrlParser: true })
   .then((result) =>
     app.listen(3000, (error) => {
       error ? console.log(error) : console.log("server running on port 3000");
