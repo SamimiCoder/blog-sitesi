@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const app = express();
 const router = express.Router();
 app.set("view engine", "ejs");
-brsConnection.connectDb;
+brsConnection.connectDB;
 app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, "public", "css")));
 app.use(express.static(path.join(__dirname, "public", "scripts")));
@@ -50,12 +50,13 @@ let post = [
     post_details: "lorem ipsum dolor sit amet consecetur adipiscing elit falan",
   },
 ];
+
 app.use(expressEjsLayouts);
 require("./routers/routeManager")(app);
-// app.listen(3000, "127.0.0.1", (error) => {
-//   if (error) {
-//     console.log("Bir hata oluştu :", error);
-//   }
-//   console.log("Server çalışıyor...");
-// });
+app.listen(3000, "127.0.0.1", (error) => {
+  if (error) {
+    console.log("Bir hata oluştu :", error);
+  }
+  console.log("Server çalışıyor...");
+});
 module.exports.post = post;

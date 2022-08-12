@@ -1,0 +1,17 @@
+#side-nav {
+  width: 15%;
+}
+#admin-menu {
+  width: 100%;
+  list-style-type: none;
+}
+.side-menuItem {
+  padding: 1rem;
+  background-color: #fff;
+  color: black;
+  font-size: larger;
+}
+#add-post {
+  width: 75%;
+  padding: 1rem;
+}

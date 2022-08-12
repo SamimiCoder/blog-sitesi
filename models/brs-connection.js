@@ -1,16 +1,59 @@
+const readline = require("readline");
 const mongoose = require("mongoose");
-const mongodb = require("mongodb");
-const mongoClient = require("mongodb").MongoClient;
-const dataBaseUrl = "mongodb://0.0.0.0:27017/";
+const dataBaseUrl = "mongodb://127.0.0.1:27017/local";
 const databaseName = "local";
 
-const connectDb = mongoClient.connect(dataBaseUrl, (error, client) => {
-  if (error) {
-    console.log(err);
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+const connectDB = mongoose.connect(
+  dataBaseUrl,
+  {
+    useNewUrlParser: true,
+  },
+  (error, result) => {
+    if (error) {
+      console.log(
+        "bir hata meydana geldi ve db ile bağlantı kurulamadı",
+        error
+      );
+    } else {
+      console.log("SERVER İLE BAĞLANTI KURULDU:", result);
+    }
   }
-  const db = client.db(databaseName);
-  console.log("MongoDB bağlantısı başarıyla gerçekleştirildi.");
-  client.close();
+);
+const schema = mongoose.Schema;
+let blogSchema = new schema({
+  post_header: String,
+  post_img: String,
+  post_description: String,
+  post_url: String,
+});
+let memberSchema = new schema({
+  member_email: String,
+  member_fullName: String,
 });
 
-module.exports.connectDb = connectDb;
+const blog = mongoose.model("brs-blog-colls", blogSchema);
+const addData = () => {
+  blog.create(
+    {
+      post_header: "BU BİR POST BAŞLIĞI",
+      post_img: "images/brs-bgi2",
+      post_description: "BU BİR POST AÇIKLAMASIDIR",
+      post_url: "sample-post",
+    },
+    (error, result) => {
+      if (error) {
+        console.log(
+          "Veri eklerken bir hata meydana geldi ve veri eklenemedi",
+          error
+        );
+      } else {
+        console.log("veri başarıla eklendi :", result);
+      }
+    }
+  );
+};
+module.exports.connectDB = connectDB;
