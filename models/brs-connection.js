@@ -3,10 +3,6 @@ const mongoose = require("mongoose");
 const dataBaseUrl = "mongodb://127.0.0.1:27017/local";
 const databaseName = "local";
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
 const connectDB = mongoose.connect(
   dataBaseUrl,
   {
@@ -35,14 +31,14 @@ let memberSchema = new schema({
   member_fullName: String,
 });
 
-const blog = mongoose.model("brs-blog-colls", blogSchema);
-const addData = () => {
-  blog.create(
+const post = mongoose.model("brs-blog-colls", blogSchema);
+const addPostData = (post_header, post_img, post_description, post_url) => {
+  post.create(
     {
-      post_header: "BU BİR POST BAŞLIĞI",
-      post_img: "images/brs-bgi2",
-      post_description: "BU BİR POST AÇIKLAMASIDIR",
-      post_url: "sample-post",
+      post_header: post_header,
+      post_img: post_img,
+      post_description: post_description,
+      post_url: post_url,
     },
     (error, result) => {
       if (error) {
@@ -51,9 +47,32 @@ const addData = () => {
           error
         );
       } else {
-        console.log("veri başarıla eklendi :", result);
+        console.log("post başarıyla eklendi :", result);
       }
     }
   );
 };
-module.exports.connectDB = connectDB;
+const member = mongoose.model("brs-member-colls", memberSchema);
+const addMemberData = (member_fullName, member_email) => {
+  member.create(
+    {
+      member_fullName: member_fullName,
+      member_email: member_email,
+    },
+    (error, result) => {
+      if (error) {
+        console.log(
+          "Veri eklerken bir hata meydana geldi ve veri eklenemedi",
+          error
+        );
+      } else {
+        console.log("üye başarıyla eklendi :", result);
+      }
+    }
+  );
+};
+module.exports = {
+  connectDB,
+  addMemberData,
+  addPostData,
+};
