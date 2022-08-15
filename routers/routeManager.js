@@ -4,7 +4,7 @@ const registerRoute = require("./registerRouter");
 const contactRoute = require("./contactRouter");
 const aboutRoute = require("./aboutRouter");
 const projectRoute = require("./projectsRouter");
-const adminLoginRoute = require("./adminLoginRouter");
+const adminLoginRoute = require("./admin_routers/adminLoginRouter");
 module.exports = function (app) {
   app.use("/", mainRoute);
   app.use("/posts", postRoute);
@@ -12,5 +12,5 @@ module.exports = function (app) {
   app.use("/contact", contactRoute);
   app.use("/about", aboutRoute);
   app.use("/projects", projectRoute);
-  app.use("/admin-login", adminLoginRoute);
+  app.use("/admin", adminLoginRoute);
 };
