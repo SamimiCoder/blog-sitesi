@@ -12,5 +12,5 @@ module.exports = function (app) {
   app.use("/contact", contactRoute);
   app.use("/about", aboutRoute);
   app.use("/projects", projectRoute);
-  app.use("/admin", adminLoginRoute);
+  app.use("/", adminLoginRoute);
 };
