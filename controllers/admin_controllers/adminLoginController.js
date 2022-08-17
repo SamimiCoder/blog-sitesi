@@ -12,5 +12,13 @@ module.exports.postF = (req, res, next) => {
     adminPassword,
     authorization,
   });
-  console.log(req.body[(adminName, adminPassword)]);
+  if (adminName == "admin" && adminPassword == "admin") {
+    console.log("giriş başarılı");
+
+    next();
+
+    console.log(req.body);
+  } else {
+    console.log("başarısız");
+  }
 };

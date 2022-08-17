@@ -5,6 +5,7 @@ const contactRoute = require("./contactRouter");
 const aboutRoute = require("./aboutRouter");
 const projectRoute = require("./projectsRouter");
 const adminLoginRoute = require("./admin_routers/adminLoginRouter");
+const postProcessRoute = require("./admin_routers/postProcessRouter");
 module.exports = function (app) {
   app.use("/", mainRoute);
   app.use("/posts", postRoute);
@@ -13,4 +14,5 @@ module.exports = function (app) {
   app.use("/about", aboutRoute);
   app.use("/projects", projectRoute);
   app.use("/", adminLoginRoute);
+  app.use("/postprocess", postProcessRoute);
 };
