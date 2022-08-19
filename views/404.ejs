@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>:(</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,17 +10,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="404.css">
 </head>
 
 <body>
-    <noscript>
-        <h1 class="text-danger">FUCK OFF</h1>
-    </noscript>
-    <form action="" method="post" action="/admin/post-process">
-        <input class="input-group-text" type="text" name="adminName" id="admin-username">
-        <input class="input-group-text" type="password" name="adminPassword" id="admin-password">
-        <input type="submit" class="btn btn-danger" id="login-admin" value="Login" />
-    </form>
+    <h1>404 not found</h1>
+    <h3>Keşke böyle bir URL olsaydı ama yok.</h3>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -32,20 +27,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script>
-        let loginBtn = document.getElementById("login-admin");
-        let adminNameTbx = document.getElementById("admin-username");
-        let adminPasswordTbx = document.getElementById("admin-password");
-        loginBtn.addEventListener("click", () => {
-            if (adminNameTbx.value == "admin" && adminPasswordTbx.value == "admin") {
-                console.log("giriş yapıldı");
-                window.location.href = "/post-process"
-            }
-            else {
-                console.log("sg");
-            }
-        })
-    </script>
 </body>
 
 </html>
