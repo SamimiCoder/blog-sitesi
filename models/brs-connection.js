@@ -7,6 +7,7 @@ const connectDB = mongoose.connect(
   dataBaseUrl,
   {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
   },
   (error, result) => {
     if (error) {
@@ -21,13 +22,13 @@ const connectDB = mongoose.connect(
 );
 const schema = mongoose.Schema;
 let blogSchema = new schema({
-  post_header: String,
-  post_img: String,
-  post_description: String,
-  post_url: String,
+  post_header: { type: String, required: true, unique: true },
+  post_img: { type: String, required: true, unique: true },
+  post_description: { type: String, required: true, unique: true },
+  post_url: { type: String, required: true, unique: true },
 });
 let memberSchema = new schema({
-  member_email: String,
+  member_email: { type: String, required: true, unique: true },
   member_fullName: String,
 });
 

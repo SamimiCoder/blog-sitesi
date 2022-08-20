@@ -62,8 +62,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //express layouts middleware
 app.use(expressEjsLayouts);
 //route manager middleware
+app.use("/admin", authRoute);
 require("./routers/routeManager")(app);
-app.use("/", authRoute);
+
 //server a bağlanma ve çalıştırma
 app.listen(3000, "127.0.0.1", (error) => {
   if (error) {
