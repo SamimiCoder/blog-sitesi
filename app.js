@@ -6,12 +6,14 @@ const brsConnection = require("./models/brs-connection");
 const path = require("path");
 const expressEjsLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
 //Class references
 const app = express();
 const router = express.Router();
 //wiev engine selecting
 app.set("view engine", "ejs");
+app.set("views",path.resolve(__dirname,"./src/views"))
 //connect to mongo db
 brsConnection.connectDB;
 //css dosyalarını ve resimleri içeren public klasörünü tanımlama
@@ -65,7 +67,7 @@ app.use(expressEjsLayouts);
 require("./routers/routeManager")(app);
 
 //server a bağlanma ve çalıştırma
-app.listen(3000, "127.0.0.1", (error) => {
+app.listen(process.env.PORT, "127.0.0.1", (error) => {
   if (error) {
     console.log("Bir hata oluştu :", error);
   }
@@ -73,3 +75,4 @@ app.listen(3000, "127.0.0.1", (error) => {
 });
 //data demosu olan post arrayi export edilmesi
 module.exports.post = post;
+module.exports.dotenv = dotenv

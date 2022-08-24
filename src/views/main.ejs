@@ -1,0 +1,16 @@
+<img id="main-banner" src="images/main-banner.jpg" alt="">
+<div id="posts-showroom">
+    <h2 id="showroom-heading">POST VİTRİNİ</h2>
+    <% post.forEach(post_el=> { %>
+        <div class="post-showcase">
+            <img src=<%=post_el.post_img_src%> alt="" class="post-img">
+            <h4 class="post-header">
+                <%= post_el.post_header %>
+            </h4>
+            <p class="post-description">
+                <%= post_el.post_details %>
+            </p>
+            <a class="post-url-btn" href=<%=post_el.post_url %> >Devamını oku..</a>
+        </div>
+        <% }) %>
+</div>

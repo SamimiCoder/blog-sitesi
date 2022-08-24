@@ -1,5 +1,5 @@
-const post = require("../app");
-module.exports.post = function (req, res) {
+const post = require("../../app");
+module.exports.index = function (req, res, next) {
   let post = [
     {
       post_img_src: "images/for-slider/1.jpg",
@@ -44,5 +44,5 @@ module.exports.post = function (req, res) {
         "lorem ipsum dolor sit amet consecetur adipiscing elit falan",
     },
   ];
-  res.render("posts", { post: post });
+  res.render("main", { post: post });
 };

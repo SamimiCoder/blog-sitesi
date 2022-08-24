@@ -1,8 +1,8 @@
 const readline = require("readline");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-
-const dataBaseUrl = "mongodb://127.0.0.1:27017/local";
+const dotenv = require("dotenv").config();
+const dataBaseUrl = process.env.MONGODB_CONNECTİON_STRİNG || "mongodb://127.0.0.1:27017/local";
 const databaseName = "local";
 
 const connectDB = mongoose.connect(
@@ -10,6 +10,7 @@ const connectDB = mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    
   },
   (error, result) => {
     if (error) {
@@ -18,7 +19,7 @@ const connectDB = mongoose.connect(
         error
       );
     } else {
-      console.log("SERVER İLE BAĞLANTI KURULDU:", result);
+      console.log("SERVER İLE BAĞLANTI KURULDU:");
     }
   }
 );
