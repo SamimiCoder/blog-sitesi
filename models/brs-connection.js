@@ -1,5 +1,7 @@
 const readline = require("readline");
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
+
 const dataBaseUrl = "mongodb://127.0.0.1:27017/local";
 const databaseName = "local";
 
@@ -72,8 +74,12 @@ const addMemberData = (member_fullName, member_email) => {
     }
   );
 };
+
+
+
 module.exports = {
   connectDB,
   addMemberData,
   addPostData,
+  
 };

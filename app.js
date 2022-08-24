@@ -6,7 +6,7 @@ const brsConnection = require("./models/brs-connection");
 const path = require("path");
 const expressEjsLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
-const authRoute = require("./routers/authRoutes");
+
 //Class references
 const app = express();
 const router = express.Router();
@@ -62,7 +62,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //express layouts middleware
 app.use(expressEjsLayouts);
 //route manager middleware
-app.use("/admin", authRoute);
 require("./routers/routeManager")(app);
 
 //server a bağlanma ve çalıştırma
