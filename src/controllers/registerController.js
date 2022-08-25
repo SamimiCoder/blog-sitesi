@@ -1,3 +1,3 @@
 module.exports.index = function (req, res, next) {
-  res.render("register");
+  res.render("signup_newsletter");
 };

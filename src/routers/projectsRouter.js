@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const projectsRoute = require("../src/controllers/projectController");
+const projectsRoute = require("../controllers/projectController");
 
 router.get("/", projectsRoute.index);
 

@@ -8,7 +8,7 @@ const projectRoute = require("./projectsRouter");
 module.exports = function (app) {
   app.use("/", mainRoute);
   app.use("/posts", postRoute);
-  app.use("/register", registerRoute);
+  app.use("/signup-newsletter", registerRoute);
   app.use("/contact", contactRoute);
   app.use("/about", aboutRoute);
   app.use("/projects", projectRoute);
