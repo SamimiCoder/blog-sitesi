@@ -1,49 +1,33 @@
 {
-  "name": "blog-site",
+  "name": "blog-sitesi",
   "version": "1.0.0",
-  "description": "my blog site BRS",
+  "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BerkaySarac-hub/blog-site-final.git"
+    "url": "git+https://github.com/BerkaySarac-hub/blog-sitesi.git"
   },
-  "keywords": [
-    "blog",
-    "site",
-    "BRS",
-    "blog",
-    "tech",
-    "blog"
-  ],
-  "author": "BRS",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/BerkaySarac-hub/blog-site-final/issues"
+    "url": "https://github.com/BerkaySarac-hub/blog-sitesi/issues"
   },
-  "homepage": "https://github.com/BerkaySarac-hub/blog-site-final#readme",
+  "homepage": "https://github.com/BerkaySarac-hub/blog-sitesi#readme",
   "dependencies": {
-    "admin-bro-expressjs": "^2.1.1",
-    "admin-bro-mongoose": "^0.5.2",
+    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
-    "connect-flash": "^0.1.1",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
-    "eslint": "^8.21.0",
     "express": "^4.18.1",
     "express-ejs-layouts": "^2.5.1",
-    "express-formidable": "^1.2.0",
-    "express-session": "^1.17.3",
-    "jsonwebtoken": "^8.5.1",
-    "mongodb": "^4.8.1",
-    "mongoose": "^6.5.2",
+    "mongoose": "^6.5.3",
     "nodemon": "^2.0.19",
-    "passport": "^0.6.0",
-    "passport-local": "^1.0.0",
-    "react": "18.2.0"
+    "password": "^0.1.1"
   }
 }
