@@ -9924,17 +9924,17 @@ a:focus {
   }
 }
 .bg-login-image {
-  background: url(../img/login_wp.jpg);
+  background: url(../img/butcher.jpg);
   background-position: center;
   background-size: cover;
 }
 .bg-register-image {
-  background: url(../img/login_wp.jpg);
+  background: url(../img/butcher.jpg);
   background-position: center;
   background-size: cover;
 }
 .bg-password-image {
-  background: url(../img/login_wp.jpg);
+  background: url(../img/butcher.jpg);
   background-position: center;
   background-size: cover;
 }
