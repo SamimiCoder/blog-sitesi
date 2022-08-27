@@ -6,35 +6,43 @@
             <div class="col-lg-7">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Oİ !</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Kayıt Oluştur !</h1>
+                        <% if (locals.validation_error !=undefined) { %>
+                            <%- include("./partials/_mesaj.ejs") %>
+                                <% } %>
                     </div>
                     <form class="user" action="/register" method="post">
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" name="ad" class="form-control form-control-user"
-                                    id="exampleFirstName" placeholder="Oİ !">
+                                <input type="text" name="ad" <%=typeof ad !="undefined" ? ad : "" %> class="form-control
+                                form-control-user"
+                                id="exampleFirstName" placeholder="İsmin !">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" name="soyad" class="form-control form-control-user"
-                                    id="exampleLastName" placeholder="Oİ!">
+                                <input type="text" <%=typeof soyad !="undefined" ? soyad : "" %> name="soyad"
+                                class="form-control form-control-user"
+                                id="exampleLastName" placeholder="soyismin!">
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" class="form-control form-control-user"
-                                id="exampleInputEmail" placeholder="Oİ@">
+                            <input type="email" name="email" <%=typeof email !="undefined" ? email : "" %>
+                            class="form-control form-control-user"
+                            id="exampleInputEmail" placeholder="example@example.com">
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="password" name="sifre" class="form-control form-control-user"
-                                    id="exampleInputPassword" placeholder="Oİ*">
+                                <input type="password" name="sifre" <%=typeof sifre !="undefined" ? sifre : "" %>
+                                class="form-control form-control-user"
+                                id="exampleInputPassword" placeholder="Şifre*">
                             </div>
                             <div class="col-sm-6">
-                                <input type="password" name="resifre" class="form-control form-control-user"
-                                    id="exampleRepeatPassword" placeholder="Oİ**">
+                                <input type="password" name="resifre" <%=typeof resifre !="undefined" ? resifre : "" %>
+                                class="form-control form-control-user"
+                                id="exampleRepeatPassword" placeholder="Şifre tekrar**">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                            Oİ!!
+                            Oluştur!!
                         </button>
                         <hr>
                         <a href="index.html" class="btn btn-google btn-user btn-block">
@@ -49,7 +57,8 @@
                         <a class="small" href="/forgot-password">Şifreni mi unuttun</a>
                     </div>
                     <div class="text-center">
-                        <a class="small" href="/login">Zaten bir kullanıcı kaydınız varmı. Giriş yapın</a>
+                        <a class="small" href="/login">Zaten bir kullanıcı kaydınız varmı. Giriş
+                            yapın</a>
                     </div>
                 </div>
             </div>

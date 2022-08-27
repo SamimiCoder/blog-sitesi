@@ -12,7 +12,7 @@ const validateNewUser = () => {
       .withMessage("şifreniz en az 6 karakter olmalı")
       .isLength({ max: 20 })
       .withMessage("şifreniz en fazla 20 karakter olmalı"),
-    body("isim")
+    body("ad")
       .trim()
       .isLength({ min: 3 })
       .withMessage("isminiz en az 3 karakter olmalı"),
@@ -26,6 +26,7 @@ const validateNewUser = () => {
         if (value !== req.body.sifre) {
           throw new Error("Şifreleriniz uyuşmuyor");
         }
+        return true;
       }),
   ];
 };
