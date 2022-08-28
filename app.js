@@ -10,6 +10,7 @@ const dotenv = require("dotenv");
 const authRouter = require("./src/routers/auth_router");
 const session = require("express-session");
 const flash = require("connect-flash");
+const MongoDBStore = require("connect-mongodb-session")(session);
 //Class references
 const app = express();
 const router = express.Router();
@@ -63,13 +64,17 @@ let post = [
 //request body den veri alabilmek için body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+const sessionStore = new MongoDBStore({
+  uri: "mongodb://localhost:27017",
+  collection: "sessionlar",
+});
 app.use(
   session({
     secret: "secret key",
     saveUninitialized: true,
     resave: false,
     cookie: { maxAge: 100 * 60 * 60 * 24 },
+    store: sessionStore,
   })
 );
 app.use(flash());
@@ -82,6 +87,7 @@ app.use((req, res, next) => {
   res.locals.resifre = req.flash("resifre");
   next();
 });
+
 //express layouts middleware
 app.use(expressEjsLayouts);
 //route manager middleware
