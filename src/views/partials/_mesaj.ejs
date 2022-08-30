@@ -7,3 +7,12 @@
         </div>
     </div>
     <% }) %>
+        <% success_message.forEach(element=> { %>
+
+            <div class="card bg-success text-info shadow">
+                <div class="card-body">
+                    <%-element.msg%>
+
+                </div>
+            </div>
+            <% }) %>

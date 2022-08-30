@@ -2,7 +2,7 @@
 const express = require("express");
 const layouts = require("express-ejs-layouts");
 const bodyParser = require("body-parser");
-const brsConnection = require("./models/brs-connection");
+const brsConnection = require("./src/models/brs-connection");
 const path = require("path");
 const expressEjsLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
@@ -80,6 +80,7 @@ app.use(
 app.use(flash());
 app.use((req, res, next) => {
   res.locals.validation_error = req.flash("validation_error");
+  res.locals.success_message = req.flash("success_message");
   res.locals.email = req.flash("email");
   res.locals.ad = req.flash("ad");
   res.locals.soyad = req.flash("soyad");

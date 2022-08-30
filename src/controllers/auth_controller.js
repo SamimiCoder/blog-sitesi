@@ -1,4 +1,5 @@
 const { validationResult } = require("express-validator");
+const user = require("../models/user_model");
 const loginFormunuGoster = (req, res, next) => {
   res.render("login", { layout: "./layout/auth_layout" });
 };
@@ -9,7 +10,7 @@ const login = (req, res, next) => {
 const registerFormunuGoster = (req, res, next) => {
   res.render("register", { layout: "./layout/auth_layout" });
 };
-const register = (req, res, next) => {
+const register = async (req, res, next) => {
   const hatalar = validationResult(req);
   if (!hatalar.isEmpty()) {
     req.flash("validation_error", hatalar.array());
@@ -19,6 +20,32 @@ const register = (req, res, next) => {
     req.flash("sifre", req.body.sifre);
     req.flash("resifre", req.body.resifre);
     res.redirect("/register");
+  } else {
+    try {
+      const _user = await user.findOne({ email: req.body.email });
+      if (_user) {
+        req.flash("validation_error", [
+          { msg: "bu email daha önce kayıt olmuştur" },
+        ]);
+        req.flash("email", req.body.email);
+        req.flash("ad", req.body.ad);
+        req.flash("soyad", req.body.soyad);
+        req.flash("sifre", req.body.sifre);
+        req.flash("resifre", req.body.resifre);
+        res.redirect("/register");
+      } else {
+        const newUser = user({
+          email: req.body.email,
+          ad: req.body.ad,
+          soyad: req.body.soyad,
+          sifre: req.body.sifre,
+        });
+        await newUser.save();
+        console.log("kullanıcı kayıt edildi", newUser);
+        req.flash("success_message", "Kullanıcı başarıyla kayıt edildi");
+        res.redirect("/login");
+      }
+    } catch (error) {}
   }
 };
 const forgotPasswordFormunuGoster = (req, res, next) => {
