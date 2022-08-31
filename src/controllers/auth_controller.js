@@ -1,10 +1,20 @@
 const { validationResult } = require("express-validator");
+const passport = require("passport");
 const user = require("../models/user_model");
+
+require("../configs/passport_local")(passport);
 const loginFormunuGoster = (req, res, next) => {
   res.render("login", { layout: "./layout/auth_layout" });
 };
 const login = (req, res, next) => {
   console.log(req.body);
+
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: "true",
+  })(req, res, next);
+
   res.render("login", { layout: "./layout/auth_layout" });
 };
 const registerFormunuGoster = (req, res, next) => {

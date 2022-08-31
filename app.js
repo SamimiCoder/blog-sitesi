@@ -10,7 +10,9 @@ const dotenv = require("dotenv");
 const authRouter = require("./src/routers/auth_router");
 const session = require("express-session");
 const flash = require("connect-flash");
+const passport = require("passport");
 const MongoDBStore = require("connect-mongodb-session")(session);
+
 //Class references
 const app = express();
 const router = express.Router();
@@ -88,8 +90,8 @@ app.use((req, res, next) => {
   res.locals.resifre = req.flash("resifre");
   next();
 });
-
-//express layouts middleware
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(expressEjsLayouts);
 //route manager middleware
 app.use("/", authRouter);
