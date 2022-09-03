@@ -30,6 +30,12 @@ const userSchema = new Schema(
       trim: true,
       unique: true,
     },
+    sifre: {
+      type: String,
+      required: true,
+      trim: true,
+      unique: false,
+    },
   },
   { collection: "kullanicilar", timestamps: true }
 );

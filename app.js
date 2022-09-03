@@ -98,7 +98,7 @@ app.use("/", authRouter);
 require("./src/routers/routeManager")(app);
 
 //server a bağlanma ve çalıştırma
-app.listen(process.env.PORT, "127.0.0.1", (error) => {
+app.listen(3000, "127.0.0.1", (error) => {
   if (error) {
     console.log("Bir hata oluştu :", error);
   }

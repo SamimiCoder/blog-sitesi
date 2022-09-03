@@ -10,7 +10,7 @@ module.exports = function (passport) {
   passport.use(
     new localStrategy(options, async (email, sifre, done) => {
       try {
-        const _bulunanUser = await user.findOne({ email: email });
+        const _bulunanUser = await User.findOne({ email: email });
         if (!_bulunanUser) {
           return done(null, false, { message: "user bulunamadı" });
         }
@@ -20,18 +20,18 @@ module.exports = function (passport) {
           return done(null, _bulunanUser);
         }
       } catch (error) {
-        return done(error);
+        return done("try catch bloğu içindesin ve hata şu :", error);
       }
     })
   );
 };
 passport.serializeUser(function (user, done) {
-  console.log("sessiona kaydedildi" + user.id);
-  done(null, User.id);
+  console.log("sessiona kaydedildi :" + user.id);
+  done(null, user.id);
 });
 passport.deserializeUser(function (id, done) {
   console.log("sessiona kaydedilen id veritabanında bulundu");
   User.findById(id, (err, user) => {
-    done(err, User);
+    done(err, user);
   });
 });

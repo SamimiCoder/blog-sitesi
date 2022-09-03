@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv").config();
 const dataBaseUrl =
-  process.env.MONGODB_CONNECTİON_STRİNG || "mongodb://127.0.0.1:5555/local";
+  process.env.MONGODB_CONNECTİON_STRİNG || "mongodb://127.0.0.1:27017/local";
 const databaseName = "local";
 
 const connectDB = mongoose.connect(

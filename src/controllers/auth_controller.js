@@ -55,7 +55,9 @@ const register = async (req, res, next) => {
         req.flash("success_message", "Kullanıcı başarıyla kayıt edildi");
         res.redirect("/login");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 const forgotPasswordFormunuGoster = (req, res, next) => {
