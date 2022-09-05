@@ -7,9 +7,15 @@ const loginFormunuGoster = (req, res, next) => {
   res.render("login", { layout: "./layout/auth_layout" });
 };
 const login = (req, res, next) => {
-  console.log(req.body);
+  const hatalar = validationResult(req);
+  if (!hatalar.isEmpty()) {
+    req.flash("validation_error", hatalar.array());
+    req.flash("email", req.body.email);
+    req.flash("sifre", req.body.sifre);
+    res.redirect("/login");
+  }
 
-  passport.authenticate("local", {
+  return passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/login",
     failureFlash: "true",

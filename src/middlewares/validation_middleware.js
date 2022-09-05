@@ -30,6 +30,21 @@ const validateNewUser = () => {
       }),
   ];
 };
+const validateLogin = () => {
+  return [
+    body("email")
+      .trim()
+      .isEmail()
+      .withMessage("lütfen geçerli bir email adresi giriniz"),
+    body("sifre")
+      .trim()
+      .isLength({ min: 6 })
+      .withMessage("şifreniz en az 6 karakter olmalı")
+      .isLength({ max: 20 })
+      .withMessage("şifreniz en fazla 20 karakter olmalı"),
+  ];
+};
 module.exports = {
   validateNewUser,
+  validateLogin,
 };

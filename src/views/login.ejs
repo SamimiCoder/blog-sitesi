@@ -12,7 +12,8 @@
                         <div class="p-5">
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Giriş Sayfası</h1>
-                                <% if (locals.validation_error !=undefined || locals.success_message !=undefined) { %>
+                                <% if (locals.validation_error !=undefined || locals.success_message !=undefined ||
+                                    locals.login_error !=null) { %>
                                     <%- include("./partials/_mesaj.ejs") %>
                                         <% } %>
                             </div>

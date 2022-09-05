@@ -20,7 +20,7 @@ module.exports = function (passport) {
           return done(null, _bulunanUser);
         }
       } catch (error) {
-        return done("try catch bloğu içindesin ve hata şu :", error);
+        return done("try catch bloğu içindesin ve hata şu :" + error);
       }
     })
   );
