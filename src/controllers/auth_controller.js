@@ -8,18 +8,19 @@ const loginFormunuGoster = (req, res, next) => {
 };
 const login = (req, res, next) => {
   const hatalar = validationResult(req);
+  req.flash("email", req.body.email);
+  req.flash("sifre", req.body.sifre);
   if (!hatalar.isEmpty()) {
     req.flash("validation_error", hatalar.array());
-    req.flash("email", req.body.email);
-    req.flash("sifre", req.body.sifre);
-    res.redirect("/login");
-  }
 
-  return passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
-    failureFlash: "true",
-  })(req, res, next);
+    res.redirect("/login");
+  } else {
+    return passport.authenticate("local", {
+      successRedirect: "/yonetim",
+      failureRedirect: "/login",
+      failureFlash: "true",
+    })(req, res, next);
+  }
 
   res.render("login", { layout: "./layout/auth_layout" });
 };
@@ -74,6 +75,21 @@ const forgotPassword = (req, res, next) => {
 
   res.render("forgot_password", { layout: "./layout/auth_layout" });
 };
+const logout = function (req, res) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    req.session.destroy((error) => {
+      res.clearCookie("connect.sid");
+      //req.flash("success_message", [{ msg: "başarıyla çıkış yapıldı" }]);
+      res.render("login", {
+        layout: "./layout/auth_layout.ejs",
+        success_message: [{ msg: "Başarıyla çıkış yapıldı" }],
+      });
+    });
+  });
+};
 
 module.exports = {
   loginFormunuGoster,
@@ -82,4 +98,5 @@ module.exports = {
   register,
   login,
   forgotPassword,
+  logout,
 };
