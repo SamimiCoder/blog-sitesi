@@ -6,5 +6,15 @@ router.get(
   authMiddleware.oturumAcilmis,
   yonetimController.anasayfayiGoster
 );
+router.get(
+  "/profil",
+  authMiddleware.oturumAcilmis,
+  yonetimController.profilSayfasiniGoster
+);
+router.post(
+  "/profil-guncelle",
+  authMiddleware.oturumAcilmis,
+  yonetimController.profilGuncelle
+);
 
 module.exports = router;

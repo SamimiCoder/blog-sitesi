@@ -34,5 +34,6 @@ router.post(
   authMiddleware.oturumAcilmamis,
   auth_controller.forgotPassword
 );
+router.get("/verify", auth_controller.verifyMail);
 router.get("/logout", authMiddleware.oturumAcilmis, auth_controller.logout);
 module.exports = router;

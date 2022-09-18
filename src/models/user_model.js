@@ -24,11 +24,9 @@ const userSchema = new Schema(
       unique: true,
       lowercase: true,
     },
-    email: {
-      type: String,
-      required: true,
-      trim: true,
-      unique: true,
+    emailAktif: {
+      type: Boolean,
+      default: false,
     },
     sifre: {
       type: String,
