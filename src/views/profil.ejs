@@ -1,41 +1,41 @@
 <div class="wrapper bg-white mt-sm-5">
     <h4 class="pb-4 border-bottom">Account settings</h4>
-    <form action="/yonetim/profil-guncelle" method="post" enctype="multipart/form-data">
-        <div class="d-flex align-items-start py-3 border-bottom">
-            <img src="https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                class="img" alt="">
+
+    <div class="d-flex align-items-start py-3 border-bottom">
+        <form action="/yonetim/profil-guncelle" method="post" enctype="multipart/form-data">
+
             <div class="pl-sm-4 pl-2" id="img-section">
                 <b>Profil fotoğrafı</b>
                 <p>Accepted file type .png. Less than 1MB</p>
                 <input name="avatar" type="file" class="btn button border"></input>
             </div>
-        </div>
-        <div class="py-2">
-            <div class="row py-2">
-                <div class="col-md-6">
-                    <label for="firstname">İsim</label>
-                    <input name="ad" type="text" value=<%- user.ad %> class="bg-light form-control" placeholder="Steve">
-                </div>
-                <div class="col-md-6 pt-md-0 pt-3">
-                    <label for="lastname">Soy isim</label>
-                    <input name="soyad" type="text" value=<%- user.soyad %> class="bg-light form-control"
-                    placeholder="Smith">
-                </div>
+    </div>
+    <div class="py-2">
+        <div class="row py-2">
+            <div class="col-md-6">
+                <label for="firstname">İsim</label>
+                <input name="ad" type="text" value=<%- user.ad %> class="bg-light form-control" placeholder="Steve">
             </div>
-            <div class="row py-2">
-                <div class="col-md-6">
-                    <label for="email">Email</label>
-                    <input name="email" type="text" readonly value=<%- user.email %> class="bg-light form-control"
-                    placeholder="steve_@email.com">
-                </div>
-
+            <div class="col-md-6 pt-md-0 pt-3">
+                <label for="lastname">Soy isim</label>
+                <input name="soyad" type="text" value=<%- user.soyad %> class="bg-light form-control"
+                placeholder="Smith">
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-md-6">
+                <label for="email">Email</label>
+                <input name="email" type="text" readonly value=<%- user.email %> class="bg-light form-control"
+                placeholder="steve_@email.com">
             </div>
 
         </div>
-        <div class="py-3 pb-4 border-bottom">
-            <button type="submit" class="btn btn-primary mr-3">Değişiklikleri kaydet</button>
-            <button class="btn border button">İptal et</button>
-        </div>
+
+    </div>
+    <div class="py-3 pb-4 border-bottom">
+        <button type="submit" class="btn btn-primary mr-3">Değişiklikleri kaydet</button>
+        <button class="btn border button">İptal et</button>
+    </div>
     </form>
     <div class="d-sm-flex align-items-center pt-3" id="deactivate">
         <div>

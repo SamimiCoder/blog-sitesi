@@ -24,6 +24,10 @@ const userSchema = new Schema(
       unique: true,
       lowercase: true,
     },
+    avatar: {
+      type: String,
+      default: "/Admin/img/butcher.jpg",
+    },
     emailAktif: {
       type: Boolean,
       default: false,
