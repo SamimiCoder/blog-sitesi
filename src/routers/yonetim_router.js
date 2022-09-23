@@ -12,5 +12,6 @@ router.get(
   authMiddleware.oturumAcilmis,
   yonetimController.profilSayfasiniGoster
 );
-
+router.get("/post-ekle", yonetimController.postEkleSayfasiniGoster);
+router.post("/post-ekle", yonetimController.postEkle);
 module.exports = router;
