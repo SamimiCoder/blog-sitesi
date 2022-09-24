@@ -1,6 +1,7 @@
 const readline = require("readline");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const { findById } = require("./user_model");
 const dotenv = require("dotenv").config();
 const dataBaseUrl =
   process.env.MONGODB_CONNECTİON_STRİNG || "mongodb://127.0.0.1:27017/local";
@@ -23,7 +24,7 @@ const connectDB = mongoose.connect(
     }
   }
 );
-const schema = mongoose.Schema;
+let schema = mongoose.Schema;
 let blogSchema = new schema({
   post_header: { type: String, required: true, unique: true },
   post_img: { type: String, required: true, unique: true },
@@ -35,14 +36,18 @@ let memberSchema = new schema({
   member_fullName: String,
 });
 
+// let veriListele = blogSchema.find({}, (err, res) => {
+//   if (err) throw err; // herhangi bir hata varsa ekrana bu hatayı fırlat dedik
+//   return res;
+// });
+
 const post = mongoose.model("brs-blog-colls", blogSchema);
-const addPostData = (post_header, post_img, post_description, post_url) => {
+const addPostData = (post_header, post_img, post_description) => {
   post.create(
     {
       post_header: post_header,
       post_img: post_img,
       post_description: post_description,
-      post_url: post_url,
     },
     (error, result) => {
       if (error) {
@@ -56,11 +61,11 @@ const addPostData = (post_header, post_img, post_description, post_url) => {
     }
   );
 };
+
 const member = mongoose.model("brs-member-colls", memberSchema);
-const addMemberData = (member_fullName, member_email) => {
+const addMemberData = (member_email) => {
   member.create(
     {
-      member_fullName: member_fullName,
       member_email: member_email,
     },
     (error, result) => {
@@ -80,4 +85,6 @@ module.exports = {
   connectDB,
   addMemberData,
   addPostData,
+  post,
+  blogSchema,
 };

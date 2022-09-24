@@ -56,10 +56,23 @@ const postEkle = (req, res, next) => {
   }
 };
 
+const post_liste_sayfasiniGoster = (req, res, next) => {
+  brs_connection.connectDB;
+  brs_connection.post.find({}, function (err, result) {
+    if (err) {
+      console.log("bir hata meydana geldi :" + err);
+    }
+    res.render("post_list.ejs", {
+      layout: "./layout/yonetim_layout.ejs",
+      res: result,
+    });
+  });
+};
 module.exports = {
   anasayfayiGoster,
   profilSayfasiniGoster,
   profilGuncelle,
   postEkleSayfasiniGoster,
   postEkle,
+  post_liste_sayfasiniGoster,
 };

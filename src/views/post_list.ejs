@@ -1,0 +1,35 @@
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">post id</th>
+            <th scope="col">post header</th>
+            <th scope="col">post description</th>
+            <th scope="col">post url</th>
+            <th scope="col">post img</th>
+            <th scope="col">İŞLEMLER</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% res.forEach(post=> { %>
+            <tr>
+                <th scope="row">
+                    <%- post._id %>
+                </th>
+                <td>
+                    <%- post.post_header %>
+                </td>
+                <td>
+                    <%- post.post_description %>
+                </td>
+                <td>
+                    <%- post.post_url %>
+                </td>
+                <td>
+                    <%- post.post_img %>
+                </td>
+                <td><input name="edit" type="button" value="DÜZENLE" class="btn btn-outline-warning"></input></td>
+                <td><input name="delete" type="button" value="SİL" class="btn btn-outline-danger"></input></td>
+            </tr>
+            <% }) %>
+    </tbody>
+</table>
