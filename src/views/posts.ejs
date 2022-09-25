@@ -2,12 +2,12 @@
 <div id="posts-showroom">
     <% post.forEach(post_el=> { %>
         <div class="post-showcase">
-            <img src=<%=post_el.post_img_src%> alt="" class="post-img">
+            <img src=<%=post_el.post_img%> alt="" class="post-img">
             <h4 class="post-header">
                 <%= post_el.post_header %>
             </h4>
             <p class="post-description">
-                <%= post_el.post_details %>
+                <%= post_el.post_description %>
             </p>
             <a class="post-url-btn" href=<%=post_el._id %> >Devamını oku..</a>
         </div>

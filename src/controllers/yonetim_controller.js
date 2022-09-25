@@ -33,14 +33,12 @@ const postEkle = (req, res, next) => {
   brs_connection.addPostData(
     req.body.post_header,
     req.body.post_img,
-    req.body.post_description,
-    req.body.post_url
+    req.body.post_description
   );
   if (
     !req.body.post_header ||
     !req.body.post_img ||
-    !req.body.post_description ||
-    !req.body.post_url
+    !req.body.post_description
   ) {
     console.log(
       "Post bilgilerinden biri veya bir kaçı boş bırakılmış lütfen hepsini doldurunuz"

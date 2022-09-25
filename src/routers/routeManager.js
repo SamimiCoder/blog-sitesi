@@ -13,7 +13,7 @@ module.exports = function (app) {
   app.use("/contact", contactRoute);
   app.use("/about", aboutRoute);
   app.use("/projects", projectRoute);
-  app.use("/:_id", postPageRoute);
+  app.use("/", postPageRoute);
   app.use((req, res) => {
     res
       .status(404)

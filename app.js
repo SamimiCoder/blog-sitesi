@@ -26,44 +26,7 @@ brsConnection.connectDB;
 app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, "public", "css")));
 //mongo db den post bilgileri çekilene kadar data demosu olan post arrayi
-let post = [
-  {
-    post_img_src: "images/for-slider/1.jpg",
-    post_url: "/post",
-    post_header: "POST HEADER",
-    post_details: "lorem ipsum dolor sit amet consecetur adipiscing elit falan",
-  },
-  {
-    post_img_src: "images/for-slider/2.jpg",
-    post_url: "/post",
-    post_header: "POST HEADER",
-    post_details: "lorem ipsum dolor sit amet consecetur adipiscing elit falan",
-  },
-  {
-    post_img_src: "images/for-slider/3.jpg",
-    post_url: "/post",
-    post_header: "POST HEADER",
-    post_details: "lorem ipsum dolor sit amet consecetur adipiscing elit falan",
-  },
-  {
-    post_img_src: "images/for-slider/4.jpg",
-    post_url: "/post",
-    post_header: "POST HEADER",
-    post_details: "lorem ipsum dolor sit amet consecetur adipiscing elit falan",
-  },
-  {
-    post_img_src: "images/for-slider/1.jpg",
-    post_url: "/post",
-    post_header: "POST HEADER",
-    post_details: "lorem ipsum dolor sit amet consecetur adipiscing elit falan",
-  },
-  {
-    post_img_src: "for-slider/3.jpg",
-    post_url: "/post",
-    post_header: "POST HEADER",
-    post_details: "lorem ipsum dolor sit amet consecetur adipiscing elit falan",
-  },
-];
+
 //request body den veri alabilmek için body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -107,6 +70,5 @@ app.listen(3000, "127.0.0.1", (error) => {
   }
   console.log("Server çalışıyor...");
 });
-//data demosu olan post arrayi export edilmesi
-module.exports.post = post;
+
 module.exports.dotenv = dotenv;
