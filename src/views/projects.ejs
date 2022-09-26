@@ -3,10 +3,10 @@
 <% projects.forEach(project=> { %>
     <div class="project-container">
         <h3 class="project-header">
-            <%= project.project_header %>
+            <%= project.name %>
         </h3>
-        <p class="project-details">project.project_details</p>
-        <a class="project-url" target="_blank" href=<%=project.project_url %> >Proje kaynaklarına ulaşmak ve denemek
+        <p class="project-details">project.description</p>
+        <a class="project-url" target="_blank" href=<%=project.html_url %> >Proje kaynaklarına ulaşmak ve denemek
             için
             tıklayınız.</a>
     </div>

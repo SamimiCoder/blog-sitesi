@@ -36,7 +36,7 @@ let blogSchema = new schema({
 });
 let memberSchema = new schema({
   member_email: { type: String, required: true, unique: true },
-  member_fullName: String,
+  
 });
 
 // let veriListele = blogSchema.find({}, (err, res) => {
@@ -66,10 +66,10 @@ const addPostData = (post_header, post_img, post_description) => {
 };
 
 const member = mongoose.model("brs-member-colls", memberSchema);
-const addMemberData = (member_email) => {
+const addMemberData = (req,res,next) => {
   member.create(
     {
-      member_email: member_email,
+      member_email: req.body.eposta,
     },
     (error, result) => {
       if (error) {
