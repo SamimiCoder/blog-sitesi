@@ -14,6 +14,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const MongoDBStore = require("connect-mongodb-session")(session);
 
+
 //Class references
 const app = express();
 const router = express.Router();

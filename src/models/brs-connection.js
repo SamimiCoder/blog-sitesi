@@ -34,15 +34,9 @@ let blogSchema = new schema({
   },
   post_description: { type: String, required: true, unique: true },
 });
-let memberSchema = new schema({
-  member_email: { type: String, required: true, unique: true },
-  
-});
 
-// let veriListele = blogSchema.find({}, (err, res) => {
-//   if (err) throw err; // herhangi bir hata varsa ekrana bu hatayı fırlat dedik
-//   return res;
-// });
+
+
 
 const post = mongoose.model("brs-blog-colls", blogSchema);
 const addPostData = (post_header, post_img, post_description) => {
@@ -65,28 +59,10 @@ const addPostData = (post_header, post_img, post_description) => {
   );
 };
 
-const member = mongoose.model("brs-member-colls", memberSchema);
-const addMemberData = (req,res,next) => {
-  member.create(
-    {
-      member_email: req.body.eposta,
-    },
-    (error, result) => {
-      if (error) {
-        console.log(
-          "Veri eklerken bir hata meydana geldi ve veri eklenemedi",
-          error
-        );
-      } else {
-        console.log("üye başarıyla eklendi :", result);
-      }
-    }
-  );
-};
+
 
 module.exports = {
   connectDB,
-  addMemberData,
   addPostData,
   post,
   blogSchema,
