@@ -1,6 +1,5 @@
 const postRoute = require("./postRouter");
 const mainRoute = require("./mainRouter");
-
 const contactRoute = require("./contactRouter");
 const aboutRoute = require("./aboutRouter");
 const projectRoute = require("./projectsRouter");
@@ -9,7 +8,6 @@ const brs_connection = require("../models/brs-connection");
 module.exports = function (app) {
   app.use("/", mainRoute);
   app.use("/posts", postRoute);
-  
   app.use("/contact", contactRoute);
   app.use("/about", aboutRoute);
   app.use("/projects", projectRoute);

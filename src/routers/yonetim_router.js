@@ -27,4 +27,6 @@ router.get(
   authMiddleware.oturumAcilmis,
   yonetimController.post_liste_sayfasiniGoster
 );
+router.get("/proje-ekle",authMiddleware.oturumAcilmis,yonetimController.projeEkleSayafasiniGoster)
+router.post("/proje-ekle",authMiddleware.oturumAcilmis,yonetimController.projeEkle)
 module.exports = router;

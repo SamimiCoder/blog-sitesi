@@ -7,8 +7,7 @@ module.exports.index = function (req, res, next) {
   let url_parts = url.parse(req.url, false);
   let query = url_parts.href;
   brs_connection.post.findById(id, function (err, result) {
-    console.log("bu url query :" + req.query);
-    console.log("bu query id si :" + req.query.id);
+
     if (err) {
       console.log(err);
     } else {

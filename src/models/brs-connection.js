@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const { findById } = require("./user_model");
 const dotenv = require("dotenv").config();
 const dataBaseUrl =
-  process.env.MONGODB_CONNECTİON_STRİNG || "mongodb://127.0.0.1:27017/local";
+  process.env.MONGODB_CONNECTİON_STRİNG || "mongodb+srv://IcanDieForJS:iU_J8NGZ2-.Rzt5@cluster0.j3ani6o.mongodb.net/?retryWrites=true&w=majority";
 const databaseName = "local";
 
 const connectDB = mongoose.connect(
@@ -37,6 +37,32 @@ let blogSchema = new schema({
 
 
 
+let projectSchema = mongoose.Schema({
+  projectHeader : {type:String,required:true,unique:false},
+  projectDescription : {type:String,required:true,unique:false},
+  projectUrl : {type : String,required:true,unique:true}
+})
+const project = mongoose.model("brs-project-colls",projectSchema);
+const addProjectData = (project_header, project_description,project_url) => {
+  project.create(
+    {
+      projectHeader: project_header,
+      projectDescription: project_description,
+      projectUrl : project_url
+    },
+    (error, result) => {
+      if (error) {
+        console.log(
+          "Veri eklerken bir hata meydana geldi ve veri eklenemedi",
+          error
+        );
+      } else {
+        console.log("proje başarıyla eklendi :", result);
+      }
+    }
+  );
+};
+
 
 const post = mongoose.model("brs-blog-colls", blogSchema);
 const addPostData = (post_header, post_img, post_description) => {
@@ -66,4 +92,6 @@ module.exports = {
   addPostData,
   post,
   blogSchema,
+  addProjectData,
+  project
 };

@@ -1,15 +1,11 @@
 <img id="project-banner" src="images/projects-banner.jpg" alt="">
 
-
-
 <% projects.forEach(project=> { %>
     <div class="project-container">
         <h3 class="project-header">
-            <%= project.name %>
+            <%= project.projectHeader %>
         </h3>
-        <p class="project-details">project.description</p>
-        <a class="project-url" target="_blank" href=<%=project.html_url %> >Proje kaynaklarına ulaşmak ve denemek
-            için
-            tıklayınız.</a>
+        <p class="project-details"><%= project.projectDescription %> </p>
+        <a class="project-url" target="_blank" href="<%=project.projectUrl%>" >proje link.</a>
     </div>
     <% }) %>

@@ -1,6 +1,9 @@
-
-
+const brs_connection = require("../models/brs-connection")
 module.exports.index = function (req, res, next) {
   
-  res.render("projects",{projects:getDataApi})
+  brs_connection.project.find({}, (err, result) => {
+    err
+      ? console.log("bir hata meydana geldi :" + err)
+      : res.render("projects", { projects: result });
+  });
 };

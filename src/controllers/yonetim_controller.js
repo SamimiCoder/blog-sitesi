@@ -53,6 +53,20 @@ const postEkle = (req, res, next) => {
     return post_mesaj_bilgi;
   }
 };
+const projeEkle = (req,res,next)=>{
+  let proje_mesaj_bilgi = " ";
+  brs_connection.addProjectData(
+    req.body.project_header,
+    req.body.project_description,
+    req.body.project_url
+  )
+  proje_mesaj_bilgi = "Proje başarıyla eklendi";
+  res.redirect("proje-ekle");
+}
+const projeEkleSayafasiniGoster = (req,res,next)=>{
+  res.render("proje-ekle",{layout:"./layout/yonetim_layout.ejs"})
+}
+
 
 const post_liste_sayfasiniGoster = (req, res, next) => {
   brs_connection.connectDB;
@@ -73,4 +87,6 @@ module.exports = {
   postEkleSayfasiniGoster,
   postEkle,
   post_liste_sayfasiniGoster,
+  projeEkleSayafasiniGoster,
+  projeEkle
 };
